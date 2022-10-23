@@ -54,7 +54,7 @@ export default makeStyles((theme) => ({
     },
   },
   logoContainer: {
-    padding: '0 5%',
+    // padding: '0 5%',
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',

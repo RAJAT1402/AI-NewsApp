@@ -3,9 +3,10 @@ import { Typography } from '@material-ui/core';
 import wordsToNumbers from 'words-to-numbers';
 import alanBtn from '@alan-ai/alan-sdk-web';
 import Header from './components/Header'
-import logo from './images/logo.png';
 import { NewsCards, Modal } from './components';
 import useStyles from './styles';
+import About from './components/About';
+import Card from './components/Card.js';
 
 const App = () => {
   const [activeArticle, setActiveArticle] = useState(0);
@@ -44,6 +45,8 @@ const App = () => {
 
   return (
     <div>
+        <Header></Header>
+        <About />
       <div className={classes.logoContainer}>
         {newsArticles.length ? (
           <div className={classes.infoContainer}>
@@ -51,20 +54,10 @@ const App = () => {
             <div className={classes.card}><Typography variant="h5" component="h2">Try saying: <br /><br />Go back</Typography></div>
           </div>
         ) : null}
-        <Header></Header>
       </div>
       <NewsCards articles={newsArticles} activeArticle={activeArticle} />
-      <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
-      {!newsArticles.length ? (
-        <div className={classes.footer}>
-          <Typography variant="body1" component="h2">
-            Created by
-            <a className={classes.link} href="https://www.linkedin.com/in/adrian-hajdin/"> Adrian Hajdin</a> -
-            <a className={classes.link} href="http://youtube.com/javascriptmastery"> JavaScript Mastery</a>
-          </Typography>
-          <img className={classes.image} src={logo} height="50px" alt="JSMastery logo" />
-        </div>
-      ) : null}
+      {/* <Card/> */}
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen} showFeedback={true}/>
     </div>
   );
 };
