@@ -1,22 +1,26 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import Logo from '../images/logo.jpg'
-import axios from 'axios'
+/* eslint-disable no-console */
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
+import MenuItem from "@mui/material/MenuItem";
+import AdbIcon from "@mui/icons-material/Adb";
+import Logo from "../images/logo.jpg";
+import axios from "axios";
+import LatestNews from "./NavBar/Latest";
+import Category from "./NavBar/Category";
+import Sources from "./NavBar/Sources";
 
-const pages = ['Latest News', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ["Latest News", "Categories", "Sources"];
+const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -38,31 +42,16 @@ function Header() {
   };
 
   const latest = () => {
-    console.log("lastest")
-    const API_KEY = '4021f8f086174735b3c487d29e7644ac';
-    let NEWS_API_URL = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=4021f8f086174735b3c487d29e7644ac`;
+    console.log("latest");
+    const API_KEY = "4021f8f086174735b3c487d29e7644ac";
+    let NEWS_API_URL =
+      "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=4021f8f086174735b3c487d29e7644ac";
 
-    // api.request(NEWS_API_URL, {headers: {"user-agent": 'user agent' }}, (error, response, body) => {
-    //   const { articles } = JSON.parse(body);
-      
-    //   if(!articles.length) {
-    //       console.log('Sorry, please try searching for news from a different source');
-    //       return;
-    //   }
-      
-    
-      
-    //   p.play({ command: 'newHeadlines', articles });
-    //   p.play(`Here are (latest|recent) news.`);
-      
-    //   p.play('Would you like me to read the headlines?');
-    //   p.then(confirmation);
-    //   });
-    axios.get(NEWS_API_URL).then((res)=>{
-            console.log(res);
-            // console.log(movies.length)
-        })
-  }
+    axios.get(NEWS_API_URL).then((res) => {
+      console.log(res);
+      // setNewsArticles(res);
+    });
+  };
 
   return (
     <AppBar position="static">
@@ -78,18 +67,18 @@ function Header() {
             href="/"
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
+              display: { xs: "none", md: "flex" },
+              fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
             }}
           >
             AI-NEWS
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -104,28 +93,28 @@ function Header() {
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
+                vertical: "bottom",
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
+                vertical: "top",
+                horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: "block", md: "none" },
               }}
             >
-              {/* {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+              {pages.map((page) => (
+                <MenuItem key={page} onClick={() => latest(page)}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
-              ))} */}
-               <MenuItem key={pages[0]} onClick={latest()}>
-                  <Typography textAlign="center">{pages[0]}</Typography>
-                </MenuItem>
+              ))}
+              {/* <MenuItem key={pages[0]} onClick={() => latest(pages[0])}>
+                <Typography textAlign="center">{pages[0]}</Typography>
+              </MenuItem> */}
             </Menu>
           </Box>
           {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
@@ -136,18 +125,18 @@ function Header() {
             href=""
             sx={{
               mr: 2,
-              display: { xs: 'flex', md: 'none' },
+              display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: 'monospace',
+              fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
             }}
           >
-            LOGO
+            AI - NEWS
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {/* {pages.map((page) => (
               <Button
                 key={page}
@@ -157,13 +146,32 @@ function Header() {
                 {page}
               </Button>
             ))} */}
-            <Button
-                key={pages[0]}
-                onClick={latest}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {pages[0]}
-              </Button>
+            <Button //latest News
+              key={pages[0]}
+              onClick={latest}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              {/* {pages[0]} */}
+              <LatestNews />
+            </Button>
+            <Button //Category
+              key={pages[1]}
+              // onClick={latest}
+              // onMouseEnter={categoryDisplay}
+              // onMouseLeave={categoryDisplay}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              {/* {pages[1]} */}
+              <Category />
+            </Button>
+            <Button //Sources
+              key={pages[2]}
+              // onClick={latest}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              {/* {pages[2]} */}
+              <Sources />
+            </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -173,17 +181,17 @@ function Header() {
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: '45px' }}
+              sx={{ mt: "45px" }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}

@@ -3,7 +3,7 @@ reply('This is a news project.'));
 
 const API_KEY = '4021f8f086174735b3c487d29e7644ac';
 let savedArticles = [];
-// News by Source
+// Latest News
 intent('(Give me | tell me | show me) the latest news', (p) => {
 let NEWS_API_URL = `https://newsapi.org/v2/everything?domains=wsj.com&apiKey=4021f8f086174735b3c487d29e7644ac`;
 
@@ -24,6 +24,8 @@ p.play('Would you like me to read the headlines?');
 p.then(confirmation);
 });
 })
+
+// News by source
 intent('(Give me | tell me | show me) the news (from | by | on | in) $(source* .+)', (p) => {
 let NEWS_API_URL = `https://newsapi.org/v2/top-headlines`;
 if(p.source.value) {
@@ -75,7 +77,6 @@ p.then(confirmation);
 });
 })
 
-//news by category
 // News by Categories
 const CATEGORIES = ['business', 'entertainment', 'general', 'health', 'science', 'sports', 'technology'];
 
