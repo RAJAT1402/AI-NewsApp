@@ -10,11 +10,11 @@ body {
 
 * {
     box-sizing: border-box;
-    /* overflow-x: hidden; */
-}
-
-html {
+  }
+  
+  html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 .myButton{
@@ -62,13 +62,13 @@ html {
   }
 
   .about{
-    background-color: #001E3C;
+    background-color: rgba(0, 0, 0, 0.85);
     color:white
   }
 
   .about-text{
     color: white;
-    background-color: #2C6F8A;
+    /* background-color: #1976D2; */
   }
 
   .logo{

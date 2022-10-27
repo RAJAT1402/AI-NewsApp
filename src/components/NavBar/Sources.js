@@ -12,7 +12,7 @@ import axios from "axios";
 
 const options = ["CNN", "Wired", "BBC News", "ABC News", "BUZZ Feed"];
 
-export default function SplitButton() {
+export default function SplitButton(props) {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
   //   const [selectedIndex, setSelectedIndex] = React.useState(1);
@@ -29,6 +29,7 @@ export default function SplitButton() {
     let NEWS_API_URL = `https://newsapi.org/v2/top-headlines?sources=${value}&apiKey=${API_KEY}`;
 
     axios.get(NEWS_API_URL).then((res) => {
+      props.setNewsArticles(res.data.articles);
       console.log(res);
       // setNewsArticles(res);
     });

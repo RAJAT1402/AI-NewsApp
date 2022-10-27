@@ -17,7 +17,7 @@ export default function About() {
           alt="news"
         />
         <CardContent className='about'>
-          <Typography gutterBottom variant="h5" component="div" className='about'>
+          <Typography gutterBottom variant="h5" component="div" >
             About The Application
           </Typography>
           <Typography variant="body2" className="about-text">

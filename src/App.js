@@ -45,8 +45,7 @@ const App = () => {
 
   return (
     <div>
-        <Header></Header>
-        <About />
+        <Header setNewsArticles={setNewsArticles}></Header>
       <div className={classes.logoContainer}>
         {newsArticles.length ? (
           <div className={classes.infoContainer}>
@@ -57,7 +56,7 @@ const App = () => {
       </div>
       <NewsCards articles={newsArticles} activeArticle={activeArticle} />
       {/* <Card/> */}
-      <Modal isOpen={isOpen} setIsOpen={setIsOpen} showFeedback={true}/>
+      {/* <Modal isOpen={false} setIsOpen={setIsOpen} showFeedback={true}/> */}
     </div>
   );
 };

@@ -16,13 +16,13 @@ import AdbIcon from "@mui/icons-material/Adb";
 import Logo from "../images/logo.jpg";
 import axios from "axios";
 import LatestNews from "./NavBar/Latest";
-import Category from "./NavBar/Category";
-import Sources from "./NavBar/Sources";
+import Category from "./NavBar/Category";  
+import Sources from "./NavBar/Sources";    
 
 const pages = ["Latest News", "Categories", "Sources"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-function Header() {
+function Header(props) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -48,6 +48,7 @@ function Header() {
       "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=4021f8f086174735b3c487d29e7644ac";
 
     axios.get(NEWS_API_URL).then((res) => {
+      props.setNewsArticles(res.data.articles);
       console.log(res);
       // setNewsArticles(res);
     });
@@ -162,7 +163,7 @@ function Header() {
               sx={{ my: 2, color: "white", display: "block" }}
             >
               {/* {pages[1]} */}
-              <Category />
+              <Category setNewsArticles={props.setNewsArticles}/>
             </Button>
             <Button //Sources
               key={pages[2]}
@@ -170,7 +171,7 @@ function Header() {
               sx={{ my: 2, color: "white", display: "block" }}
             >
               {/* {pages[2]} */}
-              <Sources />
+              <Sources setNewsArticles={props.setNewsArticles}/>
             </Button>
           </Box>
 
