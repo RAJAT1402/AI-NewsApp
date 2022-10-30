@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import { width } from '@mui/system';
 
 export default makeStyles({
   media: {
@@ -15,6 +16,7 @@ export default makeStyles({
     flexDirection: 'column',
     justifyContent: 'space-between',
     borderBottom: '10px solid white',
+    borderRadius: 30
   },
   activeCard: {
     borderBottom: '10px solid #22289a',
@@ -34,5 +36,13 @@ export default makeStyles({
     padding: '0 16px 8px 16px',
     display: 'flex',
     justifyContent: 'space-between',
+  },
+  copy:{
+    "&:hover": {
+      // backgroundColor: "gray",
+      height: '150%',
+      width: '10%'
+    },
+    cursor: 'pointer'
   },
 });

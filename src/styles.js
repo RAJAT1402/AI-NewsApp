@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import zIndex from '@material-ui/core/styles/zIndex';
 
 export default makeStyles((theme) => ({
   footer: {
@@ -27,14 +28,15 @@ export default makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '50%',
+    width: '22vw',
     padding: '3%',
     borderRadius: 10,
     color: 'white',
-    backgroundColor: 'rgba(21, 101, 192)',
+    // backgroundColor: 'rgba(21, 101, 192)',
+    backgroundColor: '#4527a0',
     margin: '0 12px',
     textAlign: 'center',
-    height: '25vmin',
+    height: '10vmin',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column-reverse',
       textAlign: 'center',
@@ -49,6 +51,7 @@ export default makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-around',
+    padding: '10px',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
     },
@@ -59,6 +62,7 @@ export default makeStyles((theme) => ({
     justifyContent: 'space-around',
     alignItems: 'center',
     width: '100%',
+    backgroundColor: '#e0e0e0',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column-reverse',
       textAlign: 'center',

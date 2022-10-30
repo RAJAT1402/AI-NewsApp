@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createRef } from 'react';
 import { Card, CardActions, CardActionArea, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
-
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 import useStyles from './styles';
 
@@ -36,6 +36,10 @@ const NewsCard = ({ article: { description, publishedAt, source, title, url, url
       </CardActionArea>
       <CardActions className={classes.cardActions}>
         <Button size="small" color="primary" href={url}>Learn More</Button>
+        <ContentCopyIcon className={classes.copy} onClick={() => {
+                navigator.clipboard.writeText(url)
+                // console.log(url)
+                }}/>
         <Typography variant="h5" color="textSecondary" component="h2">{i + 1}</Typography>
       </CardActions>
     </Card>
