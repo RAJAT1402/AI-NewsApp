@@ -25,14 +25,14 @@ export default function SplitButton(props) {
   // const [selectedIndex, setSelectedIndex] = React.useState(1);
 
   // const handleClick = () => {
-    // console.info(`You clicked ${options[selectedIndex]}`);
+  // console.info(`You clicked ${options[selectedIndex]}`);
   // };
 
   const handleMenuItemClick = (event, index) => {
     // setSelectedIndex(index);
     console.log(options[index]);
     const API_KEY = "4021f8f086174735b3c487d29e7644ac";
-    let NEWS_API_URL = `https://newsapi.org/v2/top-headlines?apiKey=${API_KEY}&country=us&category=${options[index]}`;
+    let NEWS_API_URL = `https://newsapi.org/v2/top-headlines?apiKey=${API_KEY}&country=in&category=${options[index]}`;
 
     axios.get(NEWS_API_URL).then((res) => {
       props.setNewsArticles(res.data.articles);

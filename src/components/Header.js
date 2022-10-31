@@ -16,8 +16,9 @@ import AdbIcon from "@mui/icons-material/Adb";
 import Logo from "../images/logo.jpg";
 import axios from "axios";
 import LatestNews from "./NavBar/Latest";
-import Category from "./NavBar/Category";  
-import Sources from "./NavBar/Sources";    
+import Category from "./NavBar/Category";
+import Sources from "./NavBar/Sources";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const pages = ["Latest News", "Categories", "Sources"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -25,6 +26,8 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 function Header(props) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const { loginWithRedirect, logout, user, isAuthenticated, isLoading } =
+    useAuth0();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -42,7 +45,7 @@ function Header(props) {
   };
 
   const latest = () => {
-    console.log("latest");
+    // console.log("latest");
     const API_KEY = "4021f8f086174735b3c487d29e7644ac";
     let NEWS_API_URL =
       "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=4021f8f086174735b3c487d29e7644ac";
@@ -163,7 +166,7 @@ function Header(props) {
               sx={{ my: 2, color: "white", display: "block" }}
             >
               {/* {pages[1]} */}
-              <Category setNewsArticles={props.setNewsArticles}/>
+              <Category setNewsArticles={props.setNewsArticles} />
             </Button>
             <Button //Sources
               key={pages[2]}
@@ -171,38 +174,28 @@ function Header(props) {
               sx={{ my: 2, color: "white", display: "block" }}
             >
               {/* {pages[2]} */}
-              <Sources setNewsArticles={props.setNewsArticles}/>
+              <Sources setNewsArticles={props.setNewsArticles} />
             </Button>
           </Box>
 
+          {isAuthenticated ? (
+            <Typography>
+              <p>Hello, {user.nickname}!</p>
+            </Typography>
+          ) : null}
+
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+            {isAuthenticated ? (
+              <>
+                <button
+                  onClick={() => logout({ returnTo: window.location.origin })}
+                >
+                  Log Out
+                </button>
+              </>
+            ) : (
+              <button onClick={() => loginWithRedirect()}>Log In</button>
+            )}
           </Box>
         </Toolbar>
       </Container>
