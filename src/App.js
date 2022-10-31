@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
 import { Typography } from '@material-ui/core';
 import wordsToNumbers from 'words-to-numbers';
 import alanBtn from '@alan-ai/alan-sdk-web';
-import Header from './components/Header'
 import { NewsCards, Modal } from './components';
 import useStyles from './styles';
-import About from './components/About';
-import Card from './components/Card.js';
+
+import React, { useState, useEffect } from 'react';
+import Header from './components/Header'
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   const [activeArticle, setActiveArticle] = useState(-1);
@@ -59,6 +59,7 @@ const App = () => {
         ) : null}
       </div>
       <NewsCards articles={newsArticles} activeArticle={activeArticle} />
+      <Footer />
       {/* <Card/> */}
       {/* <Modal isOpen={false} setIsOpen={setIsOpen} showFeedback={true}/> */}
     </div>

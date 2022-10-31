@@ -11,14 +11,15 @@ export default function About() {
       <CardActionArea>
         <CardMedia
           component="img"
-          height="400"
-          // width="100"
+          height="500vh"
+          width="100vw"
           image={NewsImg}
           alt="news"
+          
         />
         <CardContent className='about'>
-          <Typography gutterBottom variant="h5" component="div" >
-            About The Application
+          <Typography gutterBottom variant="h4" component="div" className='about-heading'>
+            <strong>About AI - NEWS</strong>
           </Typography>
           <Typography variant="body2" className="about-text">
             Lizards are a widespread group of squamate reptiles, with over 6,000

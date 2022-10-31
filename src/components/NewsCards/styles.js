@@ -18,4 +18,12 @@ export default makeStyles({
   container: {
     padding: '0 5%', width: '100%', margin: 0, backgroundColor: '#eeeeee'
   },
+  heading: {
+    margin: '1.5rem',
+    fontWeight: 'bold',
+    // color: '-webkit-linear-gradient(#eee, #333)'
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    background: 'linear-gradient(45deg, #651fff 50%, #e040fb 90%)',
+  }
 });

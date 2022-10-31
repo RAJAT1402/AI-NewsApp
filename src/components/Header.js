@@ -179,22 +179,31 @@ function Header(props) {
           </Box>
 
           {isAuthenticated ? (
-            <Typography>
-              <p>Hello, {user.nickname}!</p>
+            <Typography variant="p" sx={{
+              mr: 2,
+              display: { xs: "none", md: "flex" },
+              fontFamily: "monospace",
+              fontWeight: 1000,
+              fontSize: "1.1rem",
+              letterSpacing: ".1rem",
+              color: "#ffee58",
+              textDecoration: "none",
+            }}>
+              Hello, {user.name}!
             </Typography>
           ) : null}
 
           <Box sx={{ flexGrow: 0 }}>
             {isAuthenticated ? (
               <>
-                <button
+                <Button variant="contained" color="error"
                   onClick={() => logout({ returnTo: window.location.origin })}
                 >
                   Log Out
-                </button>
+                </Button>
               </>
             ) : (
-              <button onClick={() => loginWithRedirect()}>Log In</button>
+              <Button variant="contained" color="success" onClick={() => loginWithRedirect()}>Log In</Button>
             )}
           </Box>
         </Toolbar>
