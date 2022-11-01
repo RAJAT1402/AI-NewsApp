@@ -45,16 +45,20 @@ function Footer() {
                 <div className={classes.links}>
                     UseFull Links 
                     <div className={classes.info}>
-                        <a href="https://alan.app/" target='_blank' style={{color: 'white'}}>ALAN AI</a>
-                        <br></br>
-                        <a href="https://newsapi.org/" target='_blank' style={{color: 'white'}}>NEWS API</a>
+                        <a href="https://alan.app/" target='_blank' style={{color: 'white'}} className={classes.links1}>ALAN AI</a>
+                        {/* <br></br> */}
+                        <a href="https://newsapi.org/" target='_blank' style={{color: 'white'}} className={classes.links1}>NEWS API</a>
                     </div>
                 </div>
                 <div className={classes.contact}>
                     Contact info  
                     <div className={classes.info}>
-                        <Phone /> +0123456789 <br></br>
-                        <EmailIcon /> alanAI@gmail.com
+                        <div>
+                            <Phone /> +0123456789 
+                        </div>
+                        <div>
+                            <EmailIcon /> alanAI@gmail.com
+                        </div>
                     </div>    
                 </div>
             </div>

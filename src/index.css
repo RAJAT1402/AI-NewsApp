@@ -61,7 +61,12 @@ html {
 }
 
 .about-heading{
-  color: #5da8f3;
+  /* color: #5da8f3; */
+  /* background: linear-gradient(to right, #30CFD0 0%, #5da8f3 100%); */
+  background: rgb(160,0,252);
+  background: linear-gradient(90deg, rgba(160,0,252,1) 10%, rgba(37,169,207,1) 39%, rgba(0,108,255,0.981127485173757) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
   padding-top: 0.5rem;
  
 
@@ -69,6 +74,11 @@ html {
 
 .about-text {
   color: white;
+  padding-left: 5.8rem;
+  padding-right: 6.7rem;
+  font-size: 1.3rem;
+  text-align:justify;
+  justify-content: center;
   /* background-color: #1976D2; */
 }
 

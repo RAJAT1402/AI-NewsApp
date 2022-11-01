@@ -22,6 +22,7 @@ export default makeStyles({
     margin: '1.5rem',
     fontWeight: 'bold',
     // color: '-webkit-linear-gradient(#eee, #333)'
+    textAlign: 'center',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     background: 'linear-gradient(45deg, #651fff 50%, #e040fb 90%)',

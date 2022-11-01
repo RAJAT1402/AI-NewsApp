@@ -4,6 +4,7 @@ export default makeStyles({
   footer:{
     backgroundColor: '#262626',
     color: 'white',
+    marginTop: '2.2rem',
   },
   logos:{
     padding: '2rem',
@@ -18,7 +19,7 @@ export default makeStyles({
     justifyContent: 'space-around'
   },
   copyright: {
-    padding:'2rem',
+    padding:'0.2rem',
     backgroundColor: '#1E1E1E',
     textAlign: 'center',
     color: 'white'
@@ -43,6 +44,15 @@ export default makeStyles({
   info:{
     marginTop: '1rem',
     color: 'white',
+    display: 'flex',
+    flexDirection: 'column'
     // padding: '1rem',
+  },
+  links1:{
+    '&:hover': {
+      background: 'blue',
+    },
+    textDecoration: 'none',
+    marginBottom: '1rem',
   }
 });
