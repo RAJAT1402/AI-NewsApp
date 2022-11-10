@@ -1,11 +1,11 @@
 import { Typography } from '@material-ui/core';
 import wordsToNumbers from 'words-to-numbers';
 import alanBtn from '@alan-ai/alan-sdk-web';
-import { NewsCards, Modal } from './components';
+import NewsCards from './components/NewsCards/NewsCards';
 import useStyles from './styles';
 
 import React, { useState, useEffect } from 'react';
-import Header from './components/Header'
+import Header from './components/NavBar/Header'
 import Footer from './components/Footer/Footer';
 
 const App = () => {

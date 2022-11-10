@@ -13,11 +13,11 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import Logo from "../images/logo.jpg";
+import Logo from "../../images/logo.jpg";
 import axios from "axios";
-import LatestNews from "./NavBar/Latest";
-import Category from "./NavBar/Category";
-import Sources from "./NavBar/Sources";
+import LatestNews from "./Latest";
+import Category from "./Category";
+import Sources from "./Sources";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const pages = ["Latest News", "Categories", "Sources"];
